@@ -1,0 +1,34 @@
+{
+  "users": [
+    {
+      "id": "6113",
+      "username": "itzdenki",
+      "email": "itzdenki2007@gmail.com",
+      "password": "Denki123@"
+    },
+    {
+      "id": "09bd",
+      "username": "itzdenki",
+      "email": "itzdenki2007@gmail.com",
+      "password": "Denki123@"
+    },
+    {
+      "id": "25b8",
+      "username": "test2",
+      "email": "drtest@gmail.com",
+      "password": "123456"
+    },
+    {
+      "id": "66ba",
+      "username": "denki1",
+      "email": "denki@gmail.com",
+      "password": "Denki123@"
+    },
+    {
+      "id": "4d90",
+      "username": "lmao",
+      "email": "lmao@lmao.lmao",
+      "password": "lmao1"
+    }
+  ]
+}
