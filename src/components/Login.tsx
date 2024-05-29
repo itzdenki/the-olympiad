@@ -6,7 +6,7 @@ import ReCAPTCHA from 'react-google-recaptcha';
 
 interface LoginProps {
     setCurrentScreen: (screen: string) => void;
-    onLogin: () => void;
+    onLogin: (userId: number) => void;
   }
   
   const Login: React.FC<LoginProps> = ({ setCurrentScreen, onLogin }) => {
@@ -21,18 +21,22 @@ interface LoginProps {
       }
   
       try {
-        const response = await axios.get('http://localhost:5000/users', {
-          params: {
-            q: identifier,
-          },
-        });
+        const response = await axios.get('http://localhost:5000/users');
+        const user = response.data.find((user: any) => 
+          (user.username === identifier || user.email === identifier)
+        );
   
-        const user = response.data.find((user: any) => user.password === password);
-        if (user) {
-          onLogin();
-        } else {
-          toast.error('Invalid credentials!');
+        if (!user) {
+          toast.error('Your username or email does not exist');
+          return;
         }
+  
+        if (user.password !== password) {
+          toast.error('Your password is wrong');
+          return;
+        }
+  
+        onLogin(user.id);
       } catch (error) {
         console.error('Error logging in:', error);
         toast.error('Error logging in. Please try again.');
@@ -46,8 +50,18 @@ interface LoginProps {
     return (
       <div className="container">
         <h2>Login</h2>
-        <input type="text" placeholder="Username/Email" value={identifier} onChange={(e) => setIdentifier(e.target.value)} />
-        <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
+        <input
+          type="text"
+          placeholder="Username/Email"
+          value={identifier}
+          onChange={(e) => setIdentifier(e.target.value)}
+        />
+        <input
+          type="password"
+          placeholder="Password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
         <ReCAPTCHA
           sitekey="6LeQnOgpAAAAABDfwk8TsJ9VU3RFjpAk1lk6ldkH"
           onChange={handleRecaptchaChange}

@@ -2,93 +2,103 @@
 body {
   font-family: Arial, sans-serif;
   background-color: #f4f4f4;
+  color: cyan;
   margin: 0;
   padding: 0;
+}
+
+/* Header with navigation */
+.header {
+  width: 100%;
+  background-color: #333;
+  overflow: hidden;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  height: 100vh;
+  padding: 0.5rem 1rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
 }
 
-/* Container for forms */
-.container {
-  background: white;
-  padding: 2rem;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  max-width: 400px;
-  width: 100%;
-  text-align: center;
-}
-
-/* Input fields */
-input[type="text"],
-input[type="email"],
-input[type="password"] {
-  width: 100%;
-  padding: 0.75rem;
-  margin: 0.5rem 0;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-}
-
-/* Buttons */
-button {
-  padding: 0.75rem 1.25rem;
-  margin: 0.5rem 0.25rem;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
+/* Navigation Links */
+.header a {
   color: white;
+  text-align: center;
+  padding: 0.75rem 1rem;
+  text-decoration: none;
   font-size: 1rem;
   transition: background-color 0.3s;
 }
 
-/* Button colors */
-button.register {
-  background-color: #28a745;
+.header a:hover {
+  background-color: #575757;
 }
 
-button.register:hover {
-  background-color: #218838;
+/* Navigation container */
+.nav-container {
+  display: flex;
+  gap: 1rem;
+}
+
+.nav-left, .nav-right {
+  display: flex;
+  gap: 1rem;
+}
+
+.nav-right {
+  margin-left: auto;
+}
+
+.container {
+  margin-top: 5rem; /* To ensure content is below the fixed header */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  text-align: center;
+}
+
+button {
+  padding: 0.75rem 1.25rem;
+  margin: 0.5rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button.register {
+  background-color: #4CAF50;
+  color: white;
 }
 
 button.login {
-  background-color: #007bff;
-}
-
-button.login:hover {
-  background-color: #0069d9;
-}
-
-button.logout {
-  background-color: #ffc107;
-  color: black;
-}
-
-button.logout:hover {
-  background-color: #e0a800;
-}
-
-button.start {
-  background-color: #17a2b8;
-}
-
-button.start:hover {
-  background-color: #138496;
+  background-color: #008CBA;
+  color: white;
 }
 
 button.back {
-  background-color: #6c757d;
+  background-color: #f44336;
+  color: white;
 }
 
-button.back:hover {
-  background-color: #5a6268;
+/* Account Details Styles */
+.account-container {
+  width: 80%;
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: left;
+  background: #fff;
+  padding: 2rem;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 
-/* Error message */
-.error {
-  color: red;
-  margin-bottom: 1rem;
+.account-item {
+  margin: 1rem 0;
+}
+
+.account-item img {
+  max-width: 100px;
+  border-radius: 50%;
 }

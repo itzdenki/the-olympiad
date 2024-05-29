@@ -26,19 +26,20 @@ interface RegisterProps {
         return;
       }
   
-      // Email validation regex
       const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
       if (!emailRegex.test(email)) {
         toast.error('Invalid email format!');
         return;
       }
   
+      const timestamp = new Date().toISOString();
+  
       try {
         await axios.post('http://localhost:5000/users', {
           username,
           email,
           password,
-          recaptchaValue,
+          createdAt: timestamp,
         });
         setCurrentScreen('login');
       } catch (error) {

@@ -9,7 +9,6 @@ interface DashboardProps {
     return (
       <div className="container">
         <h2>Dashboard</h2>
-        <button className="logout" onClick={onLogout}>Logout</button>
         <button className="start">Bắt đầu</button>
       </div>
     );
